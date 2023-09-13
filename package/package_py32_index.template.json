@@ -1,7 +1,7 @@
 {
   "packages": [
     {
-      "name": "PY32Duino Arduino Core",
+      "name": "PY32Duino",
       "maintainer": "HalfSweet",
       "websiteURL": "https://arduino.py32.halfsweet.cn",
       "email": "HalfSweet@HalfSweet.cn",
@@ -28,12 +28,12 @@
           ],
           "toolsDependencies": [
             {
-              "packager": "HalfSweet",
+              "packager": "PY32Duino",
               "name": "xpack-arm-none-eabi-gcc",
               "version": "12.2.1-1.1"
             },
             {
-              "packager": "STMicroelectronics",
+              "packager": "PY32Duino",
               "name": "CMSIS",
               "version": "5.7.0"
             }
