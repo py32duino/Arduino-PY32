@@ -42,10 +42,8 @@ GenF030.build.board=GenF030
 GenF030.build.mcu=cortex-m0plus
 GenF030.build.series=PY32F0xx
 GenF030.build.cmsis_lib_gcc=arm_cortexM0l_math
-# GenF030.build.product_line=AIR001
-# GenF030.build.variant=AIR001/AIR001_DEV
 GenF030.build.air_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
-GenF030.build.drivers_include="-I{build.system.path}/Arduino-Air001-Drivers/{build.series}_HAL_Driver/Inc" "-I{build.system.path}/Arduino-Air001-Drivers/{build.series}_HAL_Driver/Src" "-I{build.system.path}/{build.series}" "-I{build.system.path}/Arduino-Air001-Drivers/CMSIS/Device/{build.series}/Include/" "-I{build.system.path}/Arduino-Air001-Drivers/CMSIS/Device/{build.series}/Source/gcc/" 
+GenF030.build.drivers_include="-I{build.system.path}/Arduino-PY32F0xx-Drivers/{build.series}_HAL_Driver/Inc" "-I{build.system.path}/Arduino-PY32F0xx-Drivers/{build.series}_HAL_Driver/Src" "-I{build.system.path}/{build.series}" "-I{build.system.path}/Arduino-PY32F0xx-Drivers/CMSIS/Device/{build.series}/Include/" "-I{build.system.path}/Arduino-PY32F0xx-Drivers/CMSIS/Device/{build.series}/Source/gcc/" 
 
 GenF030.menu.UploadSpeed.115200=115200
 GenF030.menu.UploadSpeed.115200.upload.speed=115200
@@ -182,4 +180,3 @@ GenF030.menu.pnum.PY32F030K26T.upload.maximum_data_size=4096
 GenF030.menu.pnum.PY32F030K26T.build.board=PY32F030K26T
 GenF030.menu.pnum.PY32F030K26T.build.product_line=PY32F030x26
 GenF030.menu.pnum.PY32F030K26T.build.variant=PY32F030xx/PY32F030K26T
-GenF030.menu.pnum.PY32F030K26T.build.variant_h=variant_{build.board}.h

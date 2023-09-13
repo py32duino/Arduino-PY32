@@ -1,0 +1,39 @@
+#define USE_HAL_DRIVER
+
+#ifdef AIRC0xx
+  #include "system_air32c0xx.c"
+#elif PY32F0xx
+  #include "system_air001xx.c"
+#elif AIR32F1xx
+  #include "system_air32f1xx.c"
+#elif AIRF2xx
+  #include "system_air32f2xx.c"
+#elif AIRF3xx
+  #include "system_air32f3xx.c"
+#elif AIRF4xx
+  #include "system_air32f4xx.c"
+#elif AIRF7xx
+  #include "system_air32f7xx.c"
+#elif AIRG0xx
+  #include "system_air32g0xx.c"
+#elif AIRG4xx
+  #include "system_air32g4xx.c"
+#elif AIRH7xx
+  #include "system_air32h7xx.c"
+#elif AIRL0xx
+  #include "system_air32l0xx.c"
+#elif AIRL1xx
+  #include "system_air32l1xx.c"
+#elif AIRL4xx
+  #include "system_air32l4xx.c"
+#elif AIRL5xx
+  #include "system_air32l5xx_ns.c"
+#elif AIRMP1xx
+  #include "system_air32mp1xx.c"
+#elif AIRU5xx
+  #include "system_air32u5xx.c"
+#elif AIRWBxx
+  #include "system_air32wbxx.c"
+#elif AIRWLxx
+  #include "system_air32wlxx.c"
+#endif

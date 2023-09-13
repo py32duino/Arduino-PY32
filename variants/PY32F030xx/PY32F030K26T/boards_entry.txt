@@ -1,0 +1,10 @@
+# This file help to add generic board entry.
+# upload.maximum_size and product_line have to be verified
+# and changed if needed.
+
+###############################
+# Generic PY32F030 Series
+###############################
+
+_TODO_
+

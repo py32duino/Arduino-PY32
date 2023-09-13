@@ -17,7 +17,7 @@ compiler.elf2hex.cmd=arm-none-eabi-objcopy
 compiler.libraries.ldflags=
 
 # 需要额外引入的头文件的路径
-compiler.py.extra_include="-I{build.source.path}" "-I{build.core.path}/avr" "-I{build.core.path}/py" "-I{build.core.path}/py/LL" "-I{build.core.path}/py/usb" "-I{build.core.path}/py/usb/hid" "-I{build.core.path}/py/usb/cdc" {build.virtio_extra_include} {build.drivers_include}
+compiler.py.extra_include="-I{build.source.path}" "-I{build.core.path}/avr" "-I{build.core.path}/py32" "-I{build.core.path}/py32/LL" "-I{build.core.path}/py32/usb" "-I{build.core.path}/py32/usb/hid" "-I{build.core.path}/py32/usb/cdc" {build.virtio_extra_include} {build.drivers_include}
 
 # 编译器警告的参数
 compiler.warning_flags=-w
