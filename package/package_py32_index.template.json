@@ -17,10 +17,10 @@
           "help": {
             "online": "https://github.com/py32duino/Arduino-PY32"
           },
-          "url": "https://github.com/py32duino/Arduino-PY32/releases/download/test/PY32Duino-0.0.1.zip",
+          "url": "https://github.com/py32duino/Arduino-PY32/releases/download/0.0.1/Arduino-PY32-0.0.1.zip",
           "archiveFileName": "PY32Duino-0.0.1.zip",
-          "checksum": "SHA-256:",
-          "size": "",
+          "checksum": "SHA-256:5de1b94e65b2e7ea666f128f2dbe70d5e3d569212d06be3daeff647fc5ad0515",
+          "size": "6311352",
           "boards": [
             {
               "name": "PY32F030"
