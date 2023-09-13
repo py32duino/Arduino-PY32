@@ -1,2 +1,19 @@
-# Arduino-PY32
-Arduino core for the PY32.
+# PY32Duino
+
+PY32Duino 是一个由社区推动，旨在适配普冉半导体公司的 Arm-Cortex 系列 MCU 的 Arduino 框架。
+
+## 文档与上手教程
+
+可以直接查看 [PY32Duino 的官方文档](https://arduino.py32.halfsweet.cn/)，包括了接口资料与上手教程。
+
+## 支持芯片
+
+目前我们支持的 MCU 如下：
+
+| MCU 系列  | 是否支持 |      详细链接       |
+| :-------: | :------: | :-----------------: |
+|  PY32F002A   |    🔨     |  |
+| PY32F003 |    🔨     |   |
+| PY32F030 |    🔨     |   |
+
+有关开发板的更多资料，请查看所述链接中的开发板内容。
