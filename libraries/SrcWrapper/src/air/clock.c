@@ -14,8 +14,8 @@
 #include "clock.h"
 #include "lock_resource.h"
 #include "otp.h"
-#include "airyyxx_ll_cortex.h"
-#include "airyyxx_ll_rcc.h"
+#include "py32yyxx_ll_cortex.h"
+#include "py32yyxx_ll_rcc.h"
 
 #ifdef __cplusplus
 extern "C" {

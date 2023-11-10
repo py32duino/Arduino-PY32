@@ -1,0 +1,12 @@
+/* HAL raised several warnings, ignore them */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+
+#ifdef AIRF4xx
+  #include "py32f4xx_hal_sdram.c"
+#elif AIRF7xx
+  #include "py32f7xx_hal_sdram.c"
+#elif AIRH7xx
+  #include "py32h7xx_hal_sdram.c"
+#endif
+#pragma GCC diagnostic pop

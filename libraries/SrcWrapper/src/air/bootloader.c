@@ -1,6 +1,6 @@
 #include "bootloader.h"
 
-#include "air_def.h"
+#include "py32_def.h"
 #include "backup.h"
 
 #ifdef BL_LEGACY_LEAF

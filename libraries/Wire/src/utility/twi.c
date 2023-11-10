@@ -772,7 +772,7 @@ void i2c_custom_init(i2c_t *obj, uint32_t timing, uint32_t addressingMode, uint3
         }
 #endif
         handle->Init.OwnAddress1     = ownAddress;
-#ifdef PY32F0xx //大概是Air001的I2C的HAL库结构体差了几个成员，所以用宏定义注释掉
+#ifdef PY32F0xx //大概是PY32的I2C的HAL库结构体差了几个成员，所以用宏定义注释掉
 
 #else
         handle->Init.OwnAddress2     = 0;

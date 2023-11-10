@@ -36,11 +36,11 @@
   */
 #include "wiring_time.h"
 #include "core_debug.h"
-#include "air_def.h"
+#include "py32_def.h"
 #include "utility/spi_com.h"
 #include "PinAF_AIRF1.h"
 #include "pinconfig.h"
-#include "airyyxx_ll_spi.h"
+#include "py32yyxx_ll_spi.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -56,7 +56,7 @@ uint32_t spi_getClkFreqInst(SPI_TypeDef *spi_inst)
 {
   uint32_t spi_freq = SystemCoreClock;
   if (spi_inst != NP) {
-#if defined(AIR001C0xx) || defined(PY32F0xx) || defined(AIR001G0xx)
+#if defined(PY32C0xx) || defined(PY32F0xx) || defined(PY32G0xx)
     /* SPIx source CLK is PCKL1 */
     spi_freq = HAL_RCC_GetPCLK1Freq();
 #else
@@ -355,7 +355,7 @@ void spi_init(spi_t *obj, uint32_t speed, spi_mode_e mode, uint8_t msb)
     pinmap_pinout(obj->pin_sclk, PinMap_SPI_SCLK);
 
     pull = (handle->Init.CLKPolarity == SPI_POLARITY_LOW) ? GPIO_PULLDOWN : GPIO_PULLUP;
-    pin_PullConfig(get_GPIO_Port(AIR_PORT(obj->pin_sclk)), AIR_LL_GPIO_PIN(obj->pin_sclk), pull);
+    pin_PullConfig(get_GPIO_Port(PY32_PORT(obj->pin_sclk)), PY32_LL_GPIO_PIN(obj->pin_sclk), pull);
     pinmap_pinout(obj->pin_ssel, PinMap_SPI_SSEL);
 #if defined(SUBGHZSPI_BASE)
   }

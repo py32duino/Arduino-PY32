@@ -40,7 +40,7 @@
 #include "wiring_constants.h"
 #include "PinNames.h"
 #include "pinmap.h"
-#include "airyyxx_ll_gpio.h"
+#include "py32yyxx_ll_gpio.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -93,7 +93,7 @@ static inline void digital_io_toggle(GPIO_TypeDef *port, uint32_t pin)
   */
 static inline void digitalWriteFast(PinName pn, uint32_t ulVal)
 {
-  digital_io_write(get_GPIO_Port(AIR_PORT(pn)), AIR_LL_GPIO_PIN(pn), ulVal);
+  digital_io_write(get_GPIO_Port(PY32_PORT(pn)), PY32_LL_GPIO_PIN(pn), ulVal);
 }
 
 /**
@@ -104,7 +104,7 @@ static inline void digitalWriteFast(PinName pn, uint32_t ulVal)
 static inline int digitalReadFast(PinName pn)
 {
   uint8_t level = 0;
-  level = digital_io_read(get_GPIO_Port(AIR_PORT(pn)), AIR_LL_GPIO_PIN(pn));
+  level = digital_io_read(get_GPIO_Port(PY32_PORT(pn)), PY32_LL_GPIO_PIN(pn));
   return (level) ? HIGH : LOW;
 }
 
@@ -116,7 +116,7 @@ static inline int digitalReadFast(PinName pn)
   */
 static inline void digitalToggleFast(PinName pn)
 {
-  digital_io_toggle(get_GPIO_Port(AIR_PORT(pn)), AIR_LL_GPIO_PIN(pn));
+  digital_io_toggle(get_GPIO_Port(PY32_PORT(pn)), PY32_LL_GPIO_PIN(pn));
 }
 
 #ifdef __cplusplus

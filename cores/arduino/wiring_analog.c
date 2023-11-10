@@ -18,7 +18,7 @@
 
 #include "Arduino.h"
 #include "PinConfigured.h"
-#include "airyyxx_ll_adc.h"
+#include "py32yyxx_ll_adc.h"
 
 #ifdef __cplusplus
 extern "C"

@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * Copyright (c) 2023, AirM2M
+ * Copyright (c) 2023, PY32Duino
  * All rights reserved.
  *
  * This software component is licensed by ST under BSD 3-Clause license,
@@ -536,7 +536,7 @@ enum {
 #endif
 
 /*
- * Each Air MCU pin number PYn defined in the variant.h
+ * Each PY32 pin number PYn defined in the variant.h
  * is also the alternate pin number PYn_ALT0
  */
 #ifdef PA0

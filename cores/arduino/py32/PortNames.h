@@ -30,7 +30,7 @@
 #ifndef _PORTNAMES_H
 #define _PORTNAMES_H
 
-#include "air_def.h"
+#include "py32_def.h"
 
 #ifdef __cplusplus
 extern "C" {

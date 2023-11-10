@@ -32,7 +32,7 @@ extern const uint32_t pin_map_ll[16];
 #ifndef GPIO_AF_NONE
 #define GPIO_AF_NONE 0
 #endif
-#define AIR_LL_GPIO_PIN(X) (pin_map_ll[AIR_PIN(X)])
+#define PY32_LL_GPIO_PIN(X) (pin_map_ll[PY32_PIN(X)])
 
 // No peripheral
 #define NP       0U

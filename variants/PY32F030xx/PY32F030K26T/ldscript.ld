@@ -3,7 +3,7 @@
 **
 **  File        : LinkerScript.ld
 **
-**  Abstract    : Linker script for Air001 Dev series
+**  Abstract    : Linker script for PY32F0xx series
 **                Set heap size, stack size and stack location according
 **                to application requirements.
 **                Set memory bank area and size if external memory is used.

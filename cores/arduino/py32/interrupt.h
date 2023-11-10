@@ -40,7 +40,7 @@
 #define __INTERRUPT_H
 
 /* Includes ------------------------------------------------------------------*/
-#include "air_def.h"
+#include "py32_def.h"
 
 #if !defined(HAL_EXTI_MODULE_DISABLED)
 

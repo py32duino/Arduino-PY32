@@ -731,7 +731,7 @@ void HardwareTimer::setMode(uint32_t channel, TimerModes_t mode, PinName pin)
     }
 
 #if defined(TIM_CCER_CC1NE)
-    isComplementaryChannel[channel - 1] = AIR_PIN_INVERTED(pinmap_function(pin, PinMap_TIM));
+    isComplementaryChannel[channel - 1] = PY32_PIN_INVERTED(pinmap_function(pin, PinMap_TIM));
 #endif
   }
 }

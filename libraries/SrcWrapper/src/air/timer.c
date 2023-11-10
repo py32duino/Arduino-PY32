@@ -712,7 +712,7 @@ uint32_t getTimerChannel(PinName pin)
 {
   uint32_t function = pinmap_function(pin, PinMap_TIM);
   uint32_t channel = 0;
-  switch (AIR_PIN_CHANNEL(function)) {
+  switch (PY32_PIN_CHANNEL(function)) {
     case 1:
       channel = TIM_CHANNEL_1;
       break;
@@ -726,7 +726,7 @@ uint32_t getTimerChannel(PinName pin)
       channel = TIM_CHANNEL_4;
       break;
     default:
-      _Error_Handler("TIM: Unknown timer channel", (int)(AIR_PIN_CHANNEL(function)));
+      _Error_Handler("TIM: Unknown timer channel", (int)(PY32_PIN_CHANNEL(function)));
       break;
   }
   return channel;

@@ -1,7 +1,7 @@
 #include "pinmap.h"
 #include "pinconfig.h"
-#include "airyyxx_ll_gpio.h"
-#include "airyyxx_ll_system.h"
+#include "py32yyxx_ll_gpio.h"
+#include "py32yyxx_ll_system.h"
 
 #if defined(AIRMP1xx)
   #include "lock_resource.h"
@@ -29,7 +29,7 @@ const PinAnalogSwitch PinMapAnalogSwitch[] = {
 #undef DUALPAD_ANALOG_SWITCH
 #endif
 
-/* Map AIR_PIN to LL */
+/* Map PY32_PIN to LL */
 const uint32_t pin_map_ll[16] = {
   LL_GPIO_PIN_0,
   LL_GPIO_PIN_1,
@@ -60,7 +60,7 @@ static void configure_dualpad_switch(PinName pin, int function, uint32_t LL_Anal
     return ;
   }
 
-  if (((function & AIR_MODE_ANALOG) != AIR_MODE_ANALOG)
+  if (((function & PY32_MODE_ANALOG) != PY32_MODE_ANALOG)
       && ((pin & PDUAL) == PDUAL)) {
     /**
       * We don't configure an analog function but the pin is an analog pad
@@ -95,7 +95,7 @@ static bool is_dualpad_switch_gpio_configurable(PinName pin, int function, uint3
     /* Check whether pin is or is associated to dualpad Analog Input */
     if ((AnalogSwitch->pin | PDUAL)  == (pin | PDUAL)) {
       *pLL_AnalogSwitch = AnalogSwitch->LL_AnalogSwitch;
-      if (((function & AIR_MODE_ANALOG) == AIR_MODE_ANALOG)
+      if (((function & PY32_MODE_ANALOG) == PY32_MODE_ANALOG)
           && ((pin & PDUAL) == PDUAL)) {
         /**
          * We configure an analog function and the pin is an analog pad Pxy_C
@@ -132,10 +132,10 @@ bool pin_in_pinmap(PinName pin, const PinMap *map)
 void pin_function(PinName pin, int function)
 {
   /* Get the pin information */
-  uint32_t mode  = AIR_PIN_FUNCTION(function);
-  uint32_t afnum = AIR_PIN_AFNUM(function);
-  uint32_t port = AIR_PORT(pin);
-  uint32_t ll_pin  = AIR_LL_GPIO_PIN(pin);
+  uint32_t mode  = PY32_PIN_FUNCTION(function);
+  uint32_t afnum = PY32_PIN_AFNUM(function);
+  uint32_t port = PY32_PORT(pin);
+  uint32_t ll_pin  = PY32_LL_GPIO_PIN(pin);
   uint32_t ll_mode = 0;
 
   if (pin == (PinName)NC) {
@@ -201,7 +201,7 @@ void pin_function(PinName pin, int function)
    *  But for families like F1, speed only applies to output.
    */
 #if defined (AIR32F1xx)
-  if (mode == AIR_PIN_OUTPUT) {
+  if (mode == PY32_PIN_OUTPUT) {
 #endif
 #ifdef LL_GPIO_SPEED_FREQ_VERY_HIGH
     LL_GPIO_SetPinSpeed(gpio, ll_pin, LL_GPIO_SPEED_FREQ_VERY_HIGH);
@@ -213,24 +213,24 @@ void pin_function(PinName pin, int function)
 #endif
 
   switch (mode) {
-    case AIR_PIN_INPUT:
+    case PY32_PIN_INPUT:
       ll_mode = LL_GPIO_MODE_INPUT;
 #if defined(AIR32F1xx)
       // on F1 family, input mode may be associated with an alternate function
       pin_SetAFPin(gpio, pin, afnum);
 #endif
       break;
-    case AIR_PIN_OUTPUT:
+    case PY32_PIN_OUTPUT:
       ll_mode = LL_GPIO_MODE_OUTPUT;
       break;
-    case AIR_PIN_ALTERNATE:
+    case PY32_PIN_ALTERNATE:
       ll_mode = LL_GPIO_MODE_ALTERNATE;
       /* In case of ALT function, also set the afnum */
-      if (afnum != AIR_PIN_AFNUM_MASK) {
+      if (afnum != PY32_PIN_AFNUM_MASK) {
         pin_SetAFPin(gpio, pin, afnum);
       }
       break;
-    case AIR_PIN_ANALOG:
+    case PY32_PIN_ANALOG:
       ll_mode = LL_GPIO_MODE_ANALOG;
       break;
     default:
@@ -241,22 +241,22 @@ void pin_function(PinName pin, int function)
 
 #if defined(GPIO_ASCR_ASC0)
   /* For families where Analog Control ASC0 register is present */
-  if (AIR_PIN_ANALOG_CONTROL(function)) {
+  if (PY32_PIN_ANALOG_CONTROL(function)) {
     LL_GPIO_EnablePinAnalogControl(gpio, ll_pin);
   } else {
     LL_GPIO_DisablePinAnalogControl(gpio, ll_pin);
   }
 #endif
 
-  if ((mode == AIR_PIN_OUTPUT) || (mode == AIR_PIN_ALTERNATE)) {
-    if (AIR_PIN_OD(function)) {
+  if ((mode == PY32_PIN_OUTPUT) || (mode == PY32_PIN_ALTERNATE)) {
+    if (PY32_PIN_OD(function)) {
       LL_GPIO_SetPinOutputType(gpio, ll_pin, LL_GPIO_OUTPUT_OPENDRAIN);
     } else {
       LL_GPIO_SetPinOutputType(gpio, ll_pin, LL_GPIO_OUTPUT_PUSHPULL);
     }
   }
 
-  pin_PullConfig(gpio, ll_pin, AIR_PIN_PUPD(function));
+  pin_PullConfig(gpio, ll_pin, PY32_PIN_PUPD(function));
 
 #if defined(DUALPAD_ANALOG_SWITCH)
   configure_dualpad_switch(pin, function, LL_AnalogSwitch);

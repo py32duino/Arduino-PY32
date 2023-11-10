@@ -52,22 +52,22 @@ void pinMode(uint32_t ulPin, uint32_t ulMode)
 #endif
     switch (ulMode) {
       case INPUT: /* INPUT_FLOATING */
-        pin_function(p, AIR_PIN_DATA(AIR_MODE_INPUT, GPIO_NOPULL, 0));
+        pin_function(p, PY32_PIN_DATA(PY32_MODE_INPUT, GPIO_NOPULL, 0));
         break;
       case INPUT_PULLUP:
-        pin_function(p, AIR_PIN_DATA(AIR_MODE_INPUT, GPIO_PULLUP, 0));
+        pin_function(p, PY32_PIN_DATA(PY32_MODE_INPUT, GPIO_PULLUP, 0));
         break;
       case INPUT_PULLDOWN:
-        pin_function(p, AIR_PIN_DATA(AIR_MODE_INPUT, GPIO_PULLDOWN, 0));
+        pin_function(p, PY32_PIN_DATA(PY32_MODE_INPUT, GPIO_PULLDOWN, 0));
         break;
       case INPUT_ANALOG:
-        pin_function(p, AIR_PIN_DATA(AIR_MODE_ANALOG, GPIO_NOPULL, 0));
+        pin_function(p, PY32_PIN_DATA(PY32_MODE_ANALOG, GPIO_NOPULL, 0));
         break;
       case OUTPUT:
-        pin_function(p, AIR_PIN_DATA(AIR_MODE_OUTPUT_PP, GPIO_NOPULL, 0));
+        pin_function(p, PY32_PIN_DATA(PY32_MODE_OUTPUT_PP, GPIO_NOPULL, 0));
         break;
       case OUTPUT_OPEN_DRAIN:
-        pin_function(p, AIR_PIN_DATA(AIR_MODE_OUTPUT_OD, GPIO_NOPULL, 0));
+        pin_function(p, PY32_PIN_DATA(PY32_MODE_OUTPUT_OD, GPIO_NOPULL, 0));
         break;
       default:
         Error_Handler();

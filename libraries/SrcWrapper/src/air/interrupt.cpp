@@ -1,6 +1,6 @@
 #include "interrupt.h"
 #include "lock_resource.h"
-#include "airyyxx_ll_exti.h"
+#include "py32yyxx_ll_exti.h"
 #if !defined(HAL_EXTI_MODULE_DISABLED)
 
 /* Private Types */

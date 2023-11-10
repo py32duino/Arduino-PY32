@@ -21,7 +21,7 @@
 #include "usbd_core.h"
 #include "usbd_if.h"
 #include "usbd_ep_conf.h"
-#include "airyyxx_ll_pwr.h"
+#include "py32yyxx_ll_pwr.h"
 
 #ifndef HAL_PCD_MODULE_ENABLED
 #error "HAL_PCD_MODULE_ENABLED is required"
@@ -62,7 +62,7 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef *hpcd)
   /* Enable VDDUSB on Pwrctrl CR2 register*/
   HAL_PWREx_EnableVddUSB();
 #endif
-#ifdef AIR001H7xx
+#ifdef PY32H7xx
   if (!LL_PWR_IsActiveFlag_USB()) {
     HAL_PWREx_EnableUSBVoltageDetector();
   }
@@ -146,7 +146,7 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef *hpcd)
 #ifdef __HAL_USB_OTG_FS_WAKEUP_EXTI_ENABLE_IT
       __HAL_USB_OTG_FS_WAKEUP_EXTI_ENABLE_IT();
 #endif
-#if !defined(AIR001L4xx) && !defined(AIR001U5xx)
+#if !defined(PY32L4xx) && !defined(PY32U5xx)
       /* Set EXTI Wakeup Interrupt priority */
       HAL_NVIC_SetPriority(OTG_FS_WKUP_IRQn, USBD_IRQ_PRIO, USBD_IRQ_SUBPRIO);
 
@@ -463,7 +463,7 @@ USBD_StatusTypeDef USBD_LL_Init(USBD_HandleTypeDef *pdev)
 #error "Missing EP0 MPS definition: DEP0CTL_MPS_64 or EP_MPS_64!"
 #endif
 #endif
-#if !defined(AIR001F1xx) && !defined(AIR001F2xx) || defined(USB)
+#if !defined(PY32F1xx) && !defined(PY32F2xx) || defined(USB)
   g_hpcd.Init.lpm_enable = DISABLE;
   g_hpcd.Init.battery_charging_enable = DISABLE;
 #endif

@@ -16,7 +16,7 @@
 #define __CLOCK_H
 
 /* Includes ------------------------------------------------------------------*/
-#include "air_def.h"
+#include "py32_def.h"
 
 #ifdef __cplusplus
 extern "C" {

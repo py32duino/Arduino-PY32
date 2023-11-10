@@ -36,10 +36,10 @@
 extern "C" {
 #endif
 
-#define PINCONF_INDEX(X) (AIR_PORT(X)-FirstPort)
+#define PINCONF_INDEX(X) (PY32_PORT(X)-FirstPort)
 
 #define PINCONF_MASK     0x01
-#define PINCONF_SHIFT(X) (AIR_PIN(X))
+#define PINCONF_SHIFT(X) (PY32_PIN(X))
 #define PINCONF_BIT(X)   (PINCONF_MASK << PINCONF_SHIFT(X))
 
 #define PINCONF_VAL(X, Y)   ((Y >> PINCONF_SHIFT(X)) & PINCONF_MASK)

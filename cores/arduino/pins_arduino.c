@@ -25,7 +25,7 @@ extern "C" {
 WEAK uint32_t pinNametoDigitalPin(PinName p)
 {
   uint32_t i = NUM_DIGITAL_PINS;
-  if (AIR_VALID_PINNAME(p)) {
+  if (PY32_VALID_PINNAME(p)) {
     for (i = 0; i < NUM_DIGITAL_PINS; i++) {
       if (digitalPin[i] == (p & PNAME_MASK)) {
         i |= ((uint32_t)(p) & ALTX_MASK);

@@ -21,7 +21,7 @@
 #define __AIR_EEPROM_H
 
 /* Includes ------------------------------------------------------------------*/
-#include "air_def.h"
+#include "py32_def.h"
 
 #ifdef __cplusplus
 extern "C" {

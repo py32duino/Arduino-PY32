@@ -40,7 +40,7 @@
 #define __ANALOG_H
 
 /* Includes ------------------------------------------------------------------*/
-#include "air_def.h"
+#include "py32_def.h"
 #include "PeripheralPins.h"
 #include "HardwareTimer.h"
 

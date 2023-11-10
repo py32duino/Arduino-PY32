@@ -26,7 +26,7 @@ void attachInterrupt(uint32_t pin, callback_function_t callback, uint32_t mode)
 #if !defined(HAL_EXTI_MODULE_DISABLED)
   uint32_t it_mode;
   PinName p = digitalPinToPinName(pin);
-  GPIO_TypeDef *port = set_GPIO_Port_Clock(AIR_PORT(p));
+  GPIO_TypeDef *port = set_GPIO_Port_Clock(PY32_PORT(p));
   if (!port) {
     return;
   }
@@ -52,7 +52,7 @@ void attachInterrupt(uint32_t pin, callback_function_t callback, uint32_t mode)
   //pinF1_DisconnectDebug(p);
 #endif /* AIR32F1xx */
 
-  air_interrupt_enable(port, AIR_GPIO_PIN(p), callback, it_mode);
+  air_interrupt_enable(port, PY32_GPIO_PIN(p), callback, it_mode);
 #else
   UNUSED(pin);
   UNUSED(callback);
@@ -77,11 +77,11 @@ void detachInterrupt(uint32_t pin)
 {
 #if !defined(HAL_EXTI_MODULE_DISABLED)
   PinName p = digitalPinToPinName(pin);
-  GPIO_TypeDef *port = get_GPIO_Port(AIR_PORT(p));
+  GPIO_TypeDef *port = get_GPIO_Port(PY32_PORT(p));
   if (!port) {
     return;
   }
-  air_interrupt_disable(port, AIR_GPIO_PIN(p));
+  air_interrupt_disable(port, PY32_GPIO_PIN(p));
 #else
   UNUSED(pin);
 #endif

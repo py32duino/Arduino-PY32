@@ -136,15 +136,15 @@ PinName analogInputToPinName(uint32_t pin);
                                      pin_in_pinmap(digitalPinToPinName(p), PinMap_SPI_SSEL))
 
 
-#define digitalPinToPort(p)         (get_GPIO_Port(AIR_PORT(digitalPinToPinName(p))))
-#define digitalPinToBitMask(p)      (AIR_GPIO_PIN(digitalPinToPinName(p)))
+#define digitalPinToPort(p)         (get_GPIO_Port(PY32_PORT(digitalPinToPinName(p))))
+#define digitalPinToBitMask(p)      (PY32_GPIO_PIN(digitalPinToPinName(p)))
 
-#define analogInPinToBit(p)         (AIR_GPIO_PIN(digitalPinToPinName(p)))
+#define analogInPinToBit(p)         (PY32_GPIO_PIN(digitalPinToPinName(p)))
 #define portOutputRegister(P)       (&(P->ODR))
 #define portInputRegister(P)        (&(P->IDR))
 
 #define portSetRegister(P)          (&(P->BSRR))
-#if defined(AIRF2xx) || defined(AIRF4xx) || defined(AIRF7xx)
+#if defined(PY32F2xx) || defined(PY32F4xx) || defined(PY32F7xx)
 /* For those series reset are in the high part so << 16U needed */
 #define portClearRegister(P)        (&(P->BSRR))
 #else
@@ -152,7 +152,7 @@ PinName analogInputToPinName(uint32_t pin);
 #endif
 
 
-#if defined(AIR32F1xx)
+#if defined(PY32F1xx)
 /*
  * Config registers split in 2 registers:
  * CRL: pin 0..7

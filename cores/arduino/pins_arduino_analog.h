@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * Copyright (c) 2023, AirM2M
+ * Copyright (c) 2023, PY32Duino
  * All rights reserved.
  *
  * This software component is licensed by ST under BSD 3-Clause license,

@@ -15,7 +15,7 @@
 #ifndef __OTP_H
 #define __OTP_H
 
-#include "air_def.h"
+#include "py32_def.h"
 
 #ifdef OTP_AREA_BASE
 #ifdef __cplusplus

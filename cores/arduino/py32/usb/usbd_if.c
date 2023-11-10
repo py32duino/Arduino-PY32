@@ -9,7 +9,7 @@
 
 #include "usbd_if.h"
 #include "usbd_cdc_if.h"
-#include "airyyxx_ll_system.h"
+#include "py32yyxx_ll_system.h"
 
 #if !defined(USBD_REENUM_DISABLED)
 
@@ -131,7 +131,7 @@ WEAK void USBD_reenumerate(void)
 {
 #if defined(USBD_PULLUP_CONTROL_PINNAME)
   /* Detach */
-  pin_function(USBD_PULLUP_CONTROL_PINNAME, AIR_PIN_DATA(STM_MODE_OUTPUT_PP, GPIO_NOPULL, 0));
+  pin_function(USBD_PULLUP_CONTROL_PINNAME, PY32_PIN_DATA(STM_MODE_OUTPUT_PP, GPIO_NOPULL, 0));
   digitalWriteFast(USBD_PULLUP_CONTROL_PINNAME, USBD_DETACH_LEVEL);
 
   /* Wait */
@@ -140,7 +140,7 @@ WEAK void USBD_reenumerate(void)
   /* Attach */
 #if defined(USBD_DP_TRICK)
   /* Revert back to input (floating), needed for the D+ trick */
-  pin_function(USBD_PULLUP_CONTROL_PINNAME, AIR_PIN_DATA(STM_MODE_INPUT, GPIO_NOPULL, 0));
+  pin_function(USBD_PULLUP_CONTROL_PINNAME, PY32_PIN_DATA(STM_MODE_INPUT, GPIO_NOPULL, 0));
 #else
   digitalWriteFast(USBD_PULLUP_CONTROL_PINNAME, USBD_ATTACH_LEVEL);
 #endif /* defined(USBD_PULLUP_CONTROL_FLOATING) */

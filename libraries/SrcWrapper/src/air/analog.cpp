@@ -12,7 +12,7 @@
  */
 #include "analog.h"
 #include "lock_resource.h"
-#include "airyyxx_ll_adc.h"
+#include "py32yyxx_ll_adc.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -109,7 +109,7 @@ uint32_t get_adc_channel(PinName pin, uint32_t *bank)
 {
   uint32_t function = pinmap_function(pin, PinMap_ADC);
   uint32_t channel = 0;
-  switch (AIR_PIN_CHANNEL(function)) {
+  switch (PY32_PIN_CHANNEL(function)) {
 #ifdef ADC_CHANNEL_0
     case 0:
       channel = ADC_CHANNEL_0;
@@ -233,11 +233,11 @@ uint32_t get_adc_channel(PinName pin, uint32_t *bank)
 #endif
 #endif
     default:
-      _Error_Handler("ADC: Unknown adc channel", (int)(AIR_PIN_CHANNEL(function)));
+      _Error_Handler("ADC: Unknown adc channel", (int)(PY32_PIN_CHANNEL(function)));
       break;
   }
 #ifdef ADC_CHANNELS_BANK_B
-  if (AIR_PIN_ANALOG_CHANNEL_BANK_B(function)) {
+  if (PY32_PIN_ANALOG_CHANNEL_BANK_B(function)) {
     *bank = ADC_CHANNELS_BANK_B;
   } else {
     *bank = ADC_CHANNELS_BANK_A;
@@ -302,7 +302,7 @@ uint32_t get_dac_channel(PinName pin)
 {
   uint32_t function = pinmap_function(pin, PinMap_DAC);
   uint32_t channel = 0;
-  switch (AIR_PIN_CHANNEL(function)) {
+  switch (PY32_PIN_CHANNEL(function)) {
 #ifdef DAC_CHANNEL_0
     case 0:
       channel = DAC_CHANNEL_0;
@@ -317,7 +317,7 @@ uint32_t get_dac_channel(PinName pin)
       break;
 #endif
     default:
-      _Error_Handler("DAC: Unknown dac channel", (int)(AIR_PIN_CHANNEL(function)));
+      _Error_Handler("DAC: Unknown dac channel", (int)(PY32_PIN_CHANNEL(function)));
       break;
   }
   return channel;
@@ -1068,7 +1068,7 @@ void pwm_start(PinName pin, uint32_t PWM_freq, uint32_t value, TimerCompareForma
 
   HT = (HardwareTimer *)(HardwareTimer_Handle[index]->__this);
 
-  uint32_t channel = AIR_PIN_CHANNEL(pinmap_function(pin, PinMap_TIM));
+  uint32_t channel = PY32_PIN_CHANNEL(pinmap_function(pin, PinMap_TIM));
 
   previousMode = HT->getMode(channel);
   if (previousMode != TIMER_OUTPUT_COMPARE_PWM1) {

@@ -21,7 +21,7 @@
 #ifndef _DWT_H_
 #define _DWT_H_
 
-#include "air_def.h"
+#include "py32_def.h"
 #include <stdbool.h>
 
 #ifdef DWT_BASE

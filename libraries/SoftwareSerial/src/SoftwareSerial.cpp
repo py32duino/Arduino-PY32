@@ -310,9 +310,9 @@ SoftwareSerial::SoftwareSerial(uint16_t receivePin, uint16_t transmitPin, bool i
   _receivePin(receivePin),
   _transmitPin(transmitPin),
   _receivePinPort(digitalPinToPort(receivePin)),
-  _receivePinNumber(AIR_LL_GPIO_PIN(digitalPinToPinName(receivePin))),
+  _receivePinNumber(PY32_LL_GPIO_PIN(digitalPinToPinName(receivePin))),
   _transmitPinPort(digitalPinToPort(transmitPin)),
-  _transmitPinNumber(AIR_LL_GPIO_PIN(digitalPinToPinName(transmitPin))),
+  _transmitPinNumber(PY32_LL_GPIO_PIN(digitalPinToPinName(transmitPin))),
   _speed(0),
   _buffer_overflow(false),
   _inverse_logic(inverse_logic),
@@ -322,10 +322,10 @@ SoftwareSerial::SoftwareSerial(uint16_t receivePin, uint16_t transmitPin, bool i
   _receive_buffer_head(0)
 {
   /* Enable GPIO clock for tx and rx pin*/
-  if (set_GPIO_Port_Clock(AIR_PORT(digitalPinToPinName(transmitPin))) == 0) {
+  if (set_GPIO_Port_Clock(PY32_PORT(digitalPinToPinName(transmitPin))) == 0) {
     _Error_Handler("ERROR: invalid transmit pin number\n", -1);
   }
-  if ((!_half_duplex) && (set_GPIO_Port_Clock(AIR_PORT(digitalPinToPinName(receivePin))) == 0)) {
+  if ((!_half_duplex) && (set_GPIO_Port_Clock(PY32_PORT(digitalPinToPinName(receivePin))) == 0)) {
     _Error_Handler("ERROR: invalid receive pin number\n", -1);
   }
 }

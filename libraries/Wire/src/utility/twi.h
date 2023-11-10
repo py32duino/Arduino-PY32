@@ -41,7 +41,7 @@
 #define __TWI_H__
 
 /* Includes ------------------------------------------------------------------*/
-#include "air_def.h"
+#include "py32_def.h"
 #include "PeripheralPins.h"
 
 #ifdef __cplusplus

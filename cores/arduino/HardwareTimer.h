@@ -19,8 +19,8 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-  Copyright (c) 2023 AirM2M
-  Modified to support Arduino-AirMCU
+  Copyright (c) 2023 PY32Duino
+  Modified to support PY32Duino
 */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -29,7 +29,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "timer.h"
-#include "airyyxx_ll_tim.h"
+#include "py32yyxx_ll_tim.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY)
 

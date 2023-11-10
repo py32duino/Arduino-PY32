@@ -27,7 +27,7 @@ extern "C" {
 
 #ifdef USBCON
 /* Includes ------------------------------------------------------------------*/
-#include "air_def.h"
+#include "py32_def.h"
 
 #if !defined(USB_BASE) && !defined(USB_OTG_DEVICE_BASE)
 #error "This board does not support USB! Select 'None' in the 'Tools->USB interface' menu"
@@ -42,8 +42,8 @@ extern "C" {
 
 #if defined(USB_BASE)
 
-#if defined(AIR001F1xx) || defined(AIR001F3xx) || defined(AIR001G4xx) || \
-    defined(AIR001L1xx) || defined(AIR001WBxx)
+#if defined(PY32F1xx) || defined(PY32F3xx) || defined(PY32G4xx) || \
+    defined(PY32L1xx) || defined(PY32WBxx)
 #if defined(SYSCFG_CFGR1_USB_IT_RMP) && !defined(USE_USB_INTERRUPT_REMAPPED)
 #define USB_IRQn            USB_LP_CAN_RX0_IRQn
 #define USB_IRQHandler      USB_LP_CAN_RX0_IRQHandler
@@ -59,21 +59,21 @@ extern "C" {
 #if defined(SYSCFG_CFGR1_USB_IT_RMP) && defined(USE_USB_INTERRUPT_REMAPPED)
 #define USB_WKUP_IRQn       USBWakeUp_RMP_IRQn
 #define USB_WKUP_IRQHandler USBWakeUp_RMP_IRQHandler
-#elif defined(AIR001F1xx) || defined(AIR001F3xx) || defined(AIR001G4xx)
+#elif defined(PY32F1xx) || defined(PY32F3xx) || defined(PY32G4xx)
 #define USB_WKUP_IRQn       USBWakeUp_IRQn
 #define USB_WKUP_IRQHandler USBWakeUp_IRQHandler
-#elif defined(AIR001L1xx)
+#elif defined(PY32L1xx)
 #define USB_WKUP_IRQn       USB_FS_WKUP_IRQn
 #define USB_WKUP_IRQHandler USB_FS_WKUP_IRQHandler
 #endif
 #endif
-#elif defined(AIR001G0xx)
+#elif defined(PY32G0xx)
 #define USB_IRQn USB_UCPD1_2_IRQn
 #define USB_IRQHandler USB_UCPD1_2_IRQHandler
-#elif defined(AIR001U5xx)
+#elif defined(PY32U5xx)
 #define USB_IRQn OTG_FS_IRQn
 #define USB_IRQHandler OTG_FS_IRQHandler
-#elif defined(AIR001L5xx)
+#elif defined(PY32L5xx)
 #define USB_IRQn            USB_FS_IRQn
 #define USB_IRQHandler      USB_FS_IRQHandler
 #endif

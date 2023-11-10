@@ -17,7 +17,7 @@
 
 #include "PinAF_AIRF1.h"
 #include "lock_resource.h"
-#include "airyyxx_ll_gpio.h"
+#include "py32yyxx_ll_gpio.h"
 
 static inline void pin_DisconnectDebug(PinName pin)
 {
@@ -72,10 +72,10 @@ static inline void pin_SetAFPin(GPIO_TypeDef *gpio, PinName pin, uint32_t afnum)
   UNUSED(pin);
   pin_SetF1AFPin(afnum);
 #else
-  uint32_t ll_pin  = AIR_LL_GPIO_PIN(pin);
+  uint32_t ll_pin  = PY32_LL_GPIO_PIN(pin);
 
   hsem_lock(CFG_HW_GPIO_SEMID, HSEM_LOCK_DEFAULT_RETRY);
-  if (AIR_PIN(pin) > 7) {
+  if (PY32_PIN(pin) > 7) {
     LL_GPIO_SetAFPin_8_15(gpio, ll_pin, afnum);
   } else {
     LL_GPIO_SetAFPin_0_7(gpio, ll_pin, afnum);

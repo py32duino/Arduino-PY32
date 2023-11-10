@@ -15,8 +15,8 @@
 #define _LOCK_RESOURCE_H
 
 /* Includes ------------------------------------------------------------------*/
-#include "air_def.h"
-#include "airyyxx_ll_hsem.h"
+#include "py32_def.h"
+#include "py32yyxx_ll_hsem.h"
 
 #ifdef __cplusplus
 extern "C" {

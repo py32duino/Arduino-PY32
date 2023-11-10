@@ -43,16 +43,16 @@ static HardwareTimer *TimerTone = NULL;
   */
 static void tonePeriodElapsedCallback()
 {
-  GPIO_TypeDef *port = get_GPIO_Port(AIR_PORT(TimerTone_pinInfo.pin));
+  GPIO_TypeDef *port = get_GPIO_Port(PY32_PORT(TimerTone_pinInfo.pin));
 
   if (port != NULL) {
     if (TimerTone_pinInfo.count != 0) {
       if (TimerTone_pinInfo.count > 0) {
         TimerTone_pinInfo.count--;
       }
-      digital_io_toggle(port, AIR_LL_GPIO_PIN(TimerTone_pinInfo.pin));
+      digital_io_toggle(port, PY32_LL_GPIO_PIN(TimerTone_pinInfo.pin));
     } else {
-      digital_io_write(port, AIR_LL_GPIO_PIN(TimerTone_pinInfo.pin), 0);
+      digital_io_write(port, PY32_LL_GPIO_PIN(TimerTone_pinInfo.pin), 0);
     }
   }
 }
@@ -69,7 +69,7 @@ static void timerTonePinDeinit()
     TimerTone->timerHandleDeinit();
   }
   if (TimerTone_pinInfo.pin != NC) {
-    pin_function(TimerTone_pinInfo.pin, AIR_PIN_DATA(AIR_MODE_INPUT, GPIO_NOPULL, 0));
+    pin_function(TimerTone_pinInfo.pin, PY32_PIN_DATA(PY32_MODE_INPUT, GPIO_NOPULL, 0));
     TimerTone_pinInfo.pin = NC;
   }
 }
@@ -93,7 +93,7 @@ static void timerTonePinInit(PinName p, uint32_t frequency, uint32_t duration)
         TimerTone_pinInfo.count = -1;
       }
 
-      pin_function(TimerTone_pinInfo.pin, AIR_PIN_DATA(AIR_MODE_OUTPUT_PP, GPIO_NOPULL, 0));
+      pin_function(TimerTone_pinInfo.pin, PY32_PIN_DATA(PY32_MODE_OUTPUT_PP, GPIO_NOPULL, 0));
 
       TimerTone->setOverflow(timFreq, HERTZ_FORMAT);
       TimerTone->attachInterrupt(tonePeriodElapsedCallback);
