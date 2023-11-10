@@ -32,7 +32,7 @@ jobs:
         run: |
           mkdir -p Arduino-PY32
           cp -r dest.git/* Arduino-PY32/
-          zip -r PY32-${GITHUB_REF#refs/tags/}.zip Arduino-PY32
+          zip -r Arduino-PY32-${GITHUB_REF#refs/tags/}.zip Arduino-PY32
 
       - uses: ncipollo/release-action@v1
         with:
