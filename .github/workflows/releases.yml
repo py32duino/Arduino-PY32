@@ -1,0 +1,47 @@
+name: release
+
+on:
+  push:
+    tags:
+      - '*'
+
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: source
+          submodules: true
+
+      - name: Remove git information from destination repository
+        run: |
+          mkdir dest.git
+          cp -r source/* dest.git/
+          cd dest.git
+          rm -rf .git
+          rm -rf .gitignore
+          rm -rf .github
+          rm -rf .gitmodules
+      
+      - name: Zip folder and save
+        run: |
+          mkdir -p Arduino-PY32
+          cp -r dest.git/* Arduino-PY32/
+          zip -r PY32-${GITHUB_REF#refs/tags/}.zip Arduino-PY32
+
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "*.zip"
+          allowUpdates: true
+
+      - name: Send repository_dispatch event to package json
+        run: |
+          curl -X POST https://api.github.com/repos/PY32Duino/Arduino-pack-json-ci/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.USER_TOKEN }} \
+          --data '{"event_type": "release"}'

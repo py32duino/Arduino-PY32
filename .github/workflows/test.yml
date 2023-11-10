@@ -1,0 +1,32 @@
+name: test
+
+on:
+  push:
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: environment prepare
+        run: |
+          cd ~
+          curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh -s 0.33.0
+          ~/bin/arduino-cli version
+          ~/bin/arduino-cli config init
+      - name: install package
+        run: |
+          ~/bin/arduino-cli core update-index --additional-urls https://github.com/Air-duino/Arduino-pack-json-ci/releases/download/Nightly/package_air_index.json
+          ~/bin/arduino-cli core install AirM2M:AirMCU@0.4.4 --additional-urls https://github.com/Air-duino/Arduino-pack-json-ci/releases/download/Nightly/package_air_index.json
+      - name: replace package
+        run: |
+          rm -rf ~/.arduino15/packages/AirM2M/hardware/AirMCU/0.4.4/
+          git submodule update --init --recursive
+          cp -r /home/runner/work/Arduino-AirMCU/Arduino-AirMCU ~/.arduino15/packages/AirM2M/hardware/AirMCU/0.4.4/
+      - name: build
+        run: |
+          cd libraries
+          python test.py
+
