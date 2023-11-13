@@ -24,7 +24,7 @@ _estack = ORIGIN(RAM) + LENGTH(RAM);    /* end of RAM */
   These numbers affect the USED size of RAM
 */
 _Min_Heap_Size = 0x200;   /* required amount of heap: 512 bytes */
-_Min_Stack_Size = 0x400;  /* required amount of stack: 1024 bytes */
+_Min_Stack_Size = 0x300;  /* required amount of stack: 768 bytes */
 
 /* Specify the memory areas */
 MEMORY
