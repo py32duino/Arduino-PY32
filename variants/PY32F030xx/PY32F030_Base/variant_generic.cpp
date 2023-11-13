@@ -10,7 +10,7 @@
  *
  *******************************************************************************
  */
-#if defined(PY32F030x6)
+#if defined (PY32F030x3) || defined (PY32F030x4) || defined(PY32F030x6) || defined (PY32F030x7) || defined (PY32F030x8)
 #include "pins_arduino.h"
 
 // Digital PinName array

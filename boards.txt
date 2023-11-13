@@ -174,9 +174,9 @@ GenF030.menu.BootConnection.direct.upload.boot=direct_connect
 
 GenF030.build.extra_flags={build.temp} -DF_CPU={build.f_cpu} {build.lsc_temp} {build.sv_tmp}
 
-GenF030.menu.pnum.PY32F030K26T=PY32F030K26T
-GenF030.menu.pnum.PY32F030K26T.upload.maximum_size=32768
-GenF030.menu.pnum.PY32F030K26T.upload.maximum_data_size=4096
-GenF030.menu.pnum.PY32F030K26T.build.board=PY32F030K26T
-GenF030.menu.pnum.PY32F030K26T.build.product_line=PY32F030x6
-GenF030.menu.pnum.PY32F030K26T.build.variant=PY32F030xx/PY32F030K26T
+GenF030.menu.pnum.PY32F030x6=PY32F030x6
+GenF030.menu.pnum.PY32F030x6.upload.maximum_size=32768
+GenF030.menu.pnum.PY32F030x6.upload.maximum_data_size=4096
+GenF030.menu.pnum.PY32F030x6.build.board=PY32F030x6
+GenF030.menu.pnum.PY32F030x6.build.product_line=PY32F030x6
+GenF030.menu.pnum.PY32F030x6.build.variant=PY32F030xx/PY32F030_Base
