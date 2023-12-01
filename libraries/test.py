@@ -1,6 +1,6 @@
 import os
 
-root = "/home/runner/work/Arduino-AirMCU/Arduino-AirMCU/libraries/"
+root = "/home/runner/work/Arduino-PY32/Arduino-PY32/libraries/"
 
 for dir in os.listdir(root):
     if not os.path.isdir(dir):
@@ -14,5 +14,5 @@ for dir in os.listdir(root):
             continue
         print("found example: "+ex_repo_path)
         #编译
-        os.system("/home/runner/bin/arduino-cli compile -b AirM2M:AirMCU:AirM2M_Air001_Board "+ex_repo_path)
+        os.system("/home/runner/bin/arduino-cli compile -b PY32Duino:PY32:GenF030 "+ex_repo_path)
 
