@@ -18,13 +18,13 @@ jobs:
           ~/bin/arduino-cli config init
       - name: install package
         run: |
-          ~/bin/arduino-cli core update-index --additional-urls https://github.com/Air-duino/Arduino-pack-json-ci/releases/download/Nightly/package_air_index.json
-          ~/bin/arduino-cli core install AirM2M:AirMCU@0.4.4 --additional-urls https://github.com/Air-duino/Arduino-pack-json-ci/releases/download/Nightly/package_air_index.json
+          ~/bin/arduino-cli core update-index --additional-urls https://github.com/PY32Duino/Arduino-pack-json-ci/releases/download/Nightly/package_py32_index.json
+          ~/bin/arduino-cli core install PY32Duino:PY32@0.1.2 --additional-urls https://github.com/PY32Duino/Arduino-pack-json-ci/releases/download/Nightly/package_py32_index.json
       - name: replace package
         run: |
-          rm -rf ~/.arduino15/packages/AirM2M/hardware/AirMCU/0.4.4/
+          rm -rf ~/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2/
           git submodule update --init --recursive
-          cp -r /home/runner/work/Arduino-AirMCU/Arduino-AirMCU ~/.arduino15/packages/AirM2M/hardware/AirMCU/0.4.4/
+          cp -r /home/runner/work/Arduino-AirMCU/Arduino-AirMCU ~/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2/
       - name: build
         run: |
           cd libraries
