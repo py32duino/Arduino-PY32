@@ -31,9 +31,9 @@ compiler.extra_flags=-mcpu={build.mcu} {build.fpu} {build.float-abi} -DUSE_FULL_
 # 汇编编译器参数
 compiler.S.flags={compiler.extra_flags} -c -x assembler-with-cpp {compiler.py.extra_include}
 
-compiler.c.flags={compiler.extra_flags} -c {build.flags.optimize} {build.flags.debug} {compiler.warning_flags} -std={compiler.c.std} -ffreestanding -fsingle-precision-constant -ffunction-sections -fdata-sections --param max-inline-insns-single=500 -MMD {compiler.py.extra_include}
+compiler.c.flags={compiler.extra_flags} -c {build.flags.optimize} {build.flags.debug} {compiler.warning_flags} -std={compiler.c.std} -fsingle-precision-constant -ffunction-sections -fdata-sections --param max-inline-insns-single=500 -MMD {compiler.py.extra_include}
 
-compiler.cpp.flags={compiler.extra_flags} -c {build.flags.optimize} {build.flags.debug} {compiler.warning_flags} -std={compiler.cpp.std} -ffreestanding -fsingle-precision-constant -ffunction-sections -fdata-sections -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -fno-use-cxa-atexit -MMD {compiler.py.extra_include}
+compiler.cpp.flags={compiler.extra_flags} -c {build.flags.optimize} {build.flags.debug} {compiler.warning_flags} -std={compiler.cpp.std} -fsingle-precision-constant -ffunction-sections -fdata-sections -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -fno-use-cxa-atexit -MMD {compiler.py.extra_include}
 
 compiler.ar.flags=rcs
 
