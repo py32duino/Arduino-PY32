@@ -24,7 +24,7 @@ jobs:
         run: |
           rm -rf ~/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2/
           git submodule update --init --recursive
-          cp -r /home/runner/work/Arduino-AirMCU/Arduino-AirMCU ~/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2/
+          cp -r /home/runner/work/Arduino-PY32/Arduino-PY32 ~/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2/
       - name: build
         run: |
           cd libraries
