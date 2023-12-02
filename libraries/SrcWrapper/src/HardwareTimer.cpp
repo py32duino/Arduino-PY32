@@ -61,6 +61,7 @@ void HardwareTimer::setup(TIM_TypeDef *instance)
 
   _timerObj.handle.Instance = instance;
   _timerObj.handle.Channel = HAL_TIM_ACTIVE_CHANNEL_CLEARED;
+#if (defined(DMA) || defined(DMA1))
   _timerObj.handle.hdma[0] = NULL;
   _timerObj.handle.hdma[1] = NULL;
   _timerObj.handle.hdma[2] = NULL;
@@ -68,6 +69,7 @@ void HardwareTimer::setup(TIM_TypeDef *instance)
   _timerObj.handle.hdma[4] = NULL;
   _timerObj.handle.hdma[5] = NULL;
   _timerObj.handle.hdma[6] = NULL;
+#endif
   _timerObj.handle.Lock = HAL_UNLOCKED;
   _timerObj.handle.State = HAL_TIM_STATE_RESET;
 

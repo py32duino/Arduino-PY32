@@ -897,6 +897,7 @@ uint16_t adc_read_value(PinName pin, uint32_t resolution)
   AdcHandle.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE; /* Parameter discarded because software trigger chosen */
 #endif
 #if !defined(AIR32F1xx) && !defined(AIRH7xx) && !defined(AIRMP1xx) && \
+    !defined(PY32F002Ax5) && \
     !defined(ADC1_V2_5)
   AdcHandle.Init.DMAContinuousRequests = DISABLE;                       /* DMA one-shot mode selected (not applied to this example) */
 #endif
@@ -940,7 +941,9 @@ uint16_t adc_read_value(PinName pin, uint32_t resolution)
 #endif
 
   AdcHandle.State = HAL_ADC_STATE_RESET;
+#if !defined(PY32F002Ax5)
   AdcHandle.DMA_Handle = NULL;
+#endif
   AdcHandle.Lock = HAL_UNLOCKED;
   /* Some other ADC_HandleTypeDef fields exists but not required */
 
