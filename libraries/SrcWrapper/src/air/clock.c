@@ -115,6 +115,7 @@ void enableClock(sourceClock_t source)
 #endif
       }
       break;
+#if defined (RCC_LSE_ON)
     case LSE_CLOCK:
       if (__HAL_RCC_GET_FLAG(RCC_FLAG_LSERDY) == RESET) {
 #ifdef __HAL_RCC_LSEDRIVE_CONFIG
@@ -124,6 +125,7 @@ void enableClock(sourceClock_t source)
         RCC_OscInitStruct.LSEState = RCC_LSE_ON;
       }
       break;
+#endif
     case HSE_CLOCK:
       if (__HAL_RCC_GET_FLAG(RCC_FLAG_HSERDY) == RESET) {
         RCC_OscInitStruct.OscillatorType =  RCC_OSCILLATORTYPE_HSE;
