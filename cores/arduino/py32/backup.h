@@ -68,8 +68,10 @@ static inline void resetBackupDomain(void)
     */
   HAL_PWR_EnableBkUpAccess();
 #endif
+#if defined(RCC_BDCR_RTCSEL)
   __HAL_RCC_BACKUPRESET_FORCE();
   __HAL_RCC_BACKUPRESET_RELEASE();
+#endif
 }
 
 static inline void enableBackupDomain(void)
