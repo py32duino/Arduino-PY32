@@ -408,21 +408,9 @@ GenF002A.menu.UploadSpeed.1200=1200
 GenF002A.menu.UploadSpeed.1200.upload.speed=1200
 
 # HSI/HSE选择和主频
-GenF002A.menu.ClockSourceAndFrequency.HSI4M_HCLK4M=HSI 4Mhz, HCLK 4Mhz
-GenF002A.menu.ClockSourceAndFrequency.HSI4M_HCLK4M.build.temp=-D{build.series}_HSI_4M_HCLK_4M
-GenF002A.menu.ClockSourceAndFrequency.HSI4M_HCLK4M.build.f_cpu=4000000L
-
 GenF002A.menu.ClockSourceAndFrequency.HSI8M_HCLK8M=HSI 8Mhz, HCLK 8Mhz
 GenF002A.menu.ClockSourceAndFrequency.HSI8M_HCLK8M.build.temp=-D{build.series}_HSI_8M_HCLK_8M
 GenF002A.menu.ClockSourceAndFrequency.HSI8M_HCLK8M.build.f_cpu=8000000L
-
-GenF002A.menu.ClockSourceAndFrequency.HSI16M_HCLK16M=HSI 16Mhz, HCLK 16Mhz
-GenF002A.menu.ClockSourceAndFrequency.HSI16M_HCLK16M.build.temp=-D{build.series}_HSI_16M_HCLK_16M
-GenF002A.menu.ClockSourceAndFrequency.HSI16M_HCLK16M.build.f_cpu=16000000L
-
-GenF002A.menu.ClockSourceAndFrequency.HSI22_12M_HCLK22_12M=HSI 22.12Mhz, HCLK 22.12Mhz
-GenF002A.menu.ClockSourceAndFrequency.HSI22_12M_HCLK22_12M.build.temp=-D{build.series}_HSI_22_12M_HCLK_22_12M
-GenF002A.menu.ClockSourceAndFrequency.HSI22_12M_HCLK22_12M.build.f_cpu=22120000L
 
 GenF002A.menu.ClockSourceAndFrequency.HSI24M_HCLK24M=HSI 24Mhz, HCLK 24Mhz
 GenF002A.menu.ClockSourceAndFrequency.HSI24M_HCLK24M.build.temp=-D{build.series}_HSI_24M_HCLK_24M
