@@ -16,8 +16,6 @@
  *        PY32 MCU pins number
  *----------------------------------------------------------------------------*/
 
-#define RCC_PLL_SUPPORT
-
 #define PA0                     PIN_A0
 #define PA1                     PIN_A1
 #define PA2                     PIN_A2
@@ -118,7 +116,7 @@
   #define TIMER_TONE            TIM16
 #endif
 #ifndef TIMER_SERVO
-  #define TIMER_SERVO           TIM14
+  // #define TIMER_SERVO           TIM14
 #endif
 
 // UART Definitions
