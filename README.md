@@ -4,7 +4,7 @@ PY32Duino 是一个由社区推动，旨在适配普冉半导体公司的 Arm-Co
 
 ## 文档与上手教程
 
-可以直接查看 [PY32Duino 的官方文档](https://arduino.py32.halfsweet.cn/)，包括了接口资料与上手教程。
+可以直接查看 [PY32Duino 的官方文档](https://arduino.py32.org/)，包括了接口资料与上手教程。
 
 ## 支持芯片
 
