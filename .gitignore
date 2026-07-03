@@ -31,5 +31,9 @@
 *.out
 *.app
 
+# Python cache
+__pycache__/
+*.py[cod]
+
 # vscode
 .vscode/*.*
