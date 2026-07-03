@@ -23,8 +23,8 @@ _estack = ORIGIN(RAM) + LENGTH(RAM);    /* end of RAM */
   Generate a link error if heap and stack don't fit into RAM.
   These numbers affect the USED size of RAM
 */
-_Min_Heap_Size = 0x200;   /* required amount of heap: 512 bytes */
-_Min_Stack_Size = 0x300;  /* required amount of stack: 768 bytes */
+_Min_Heap_Size = DEFINED(LD_MIN_HEAP_SIZE) ? LD_MIN_HEAP_SIZE : 0x100;
+_Min_Stack_Size = DEFINED(LD_MIN_STACK_SIZE) ? LD_MIN_STACK_SIZE : 0x200;
 
 /* Specify the memory areas */
 MEMORY
@@ -151,4 +151,3 @@ SECTIONS
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 }
-
