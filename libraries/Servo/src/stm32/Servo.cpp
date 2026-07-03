@@ -16,7 +16,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-#if defined(ARDUINO_ARCH_STM32) || defined(ARDUINO_ARCH_AIRMCU)
+#if defined(ARDUINO_ARCH_STM32) || defined(ARDUINO_ARCH_AIRMCU) || defined(ARDUINO_ARCH_PY32)
 
 #include <Arduino.h>
 #include <Servo.h>
@@ -199,16 +199,18 @@ bool Servo::attached()
 
 #warning "TIMER_TONE or HAL_TIM_MODULE_ENABLED not defined"
 Servo::Servo() {}
-uint8_t Servo::attach(int pin)
+uint8_t Servo::attach(int pin, int value)
 {
   UNUSED(pin);
+  UNUSED(value);
   return 0;
 }
-uint8_t Servo::attach(int pin, int min, int max)
+uint8_t Servo::attach(int pin, int min, int max, int value)
 {
   UNUSED(pin);
   UNUSED(min);
   UNUSED(max);
+  UNUSED(value);
   return 0;
 }
 void Servo::detach() {}
@@ -228,8 +230,11 @@ int Servo::readMicroseconds()
 {
   return 0;
 }
-bool Servo::attached() {}
+bool Servo::attached()
+{
+  return false;
+}
 
 #endif /* HAL_TIM_MODULE_ENABLED && TIMER_SERVO & !HAL_TIM_MODULE_ONLY */
 
-#endif // ARDUINO_ARCH_STM32
+#endif // ARDUINO_ARCH_STM32 || ARDUINO_ARCH_AIRMCU || ARDUINO_ARCH_PY32

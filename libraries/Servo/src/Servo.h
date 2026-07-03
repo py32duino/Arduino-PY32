@@ -69,10 +69,10 @@
   #include "stm32f4/ServoTimers.h"
 #elif defined(ARDUINO_ARCH_NRF52)
   #include "nrf52/ServoTimers.h"
-#elif defined(ARDUINO_ARCH_STM32) || defined(ARDUINO_ARCH_AIRMCU)
+#elif defined(ARDUINO_ARCH_STM32) || defined(ARDUINO_ARCH_AIRMCU) || defined(ARDUINO_ARCH_PY32)
   #include "stm32/ServoTimers.h"
 #else
-  #error "This library only supports boards with an AVR, SAM, SAMD, NRF52, STM32F4 or STM32 processor."
+  #error "This library only supports boards with an AVR, SAM, SAMD, NRF52, STM32F4, STM32 or PY32 processor."
 #endif
 
 #define Servo_VERSION           2     // software version of this library
