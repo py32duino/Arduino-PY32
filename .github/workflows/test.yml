@@ -22,6 +22,8 @@ jobs:
         include:
           - fqbn: PY32Duino:PY32:GenF030:pnum=PY32F030x8
             examples: true
+          - fqbn: PY32Duino:PY32:GenF003:pnum=PY32F003x8
+            examples: true
           - fqbn: PY32Duino:PY32:GenF002A
             examples: false
     steps:
