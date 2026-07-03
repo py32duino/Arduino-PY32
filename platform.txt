@@ -191,7 +191,7 @@ tools.AirISP.program.pattern="{path}/{cmd}" {program.pattern_args}
 tools.AirISP.erase.protocol=serial
 tools.AirISP.erase.params.verbose=
 tools.AirISP.erase.params.quiet=
-tools.AirISP.erase.pattern_args=---chip "auto" --port "{serial.port}" --baud {upload.speed} --before {upload.boot} --after hard_reset erase_flash
+tools.AirISP.erase.pattern_args=--chip "auto" --port "{serial.port}" --baud {upload.speed} --before {upload.boot} --after hard_reset erase_flash
 tools.AirISP.erase.pattern="{path}/{cmd}" {erase.pattern_args}
 
 ## Burn Bootloader
