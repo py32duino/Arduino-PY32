@@ -7,6 +7,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: boards/platform checks
+        run: python3 scripts/check_boards.py
+
   build:
     runs-on: ubuntu-latest
     strategy:
