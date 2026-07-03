@@ -2,31 +2,41 @@ name: test
 
 on:
   push:
+  pull_request:
 
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        board:
+          - GenF030
+          - GenF003
+          - GenF002A
     steps:
       - uses: actions/checkout@v3
       - name: environment prepare
         run: |
           cd ~
           curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh -s 0.33.0
+          echo "$HOME/bin" >> "$GITHUB_PATH"
           ~/bin/arduino-cli version
           ~/bin/arduino-cli config init
       - name: install package
         run: |
-          ~/bin/arduino-cli core update-index --additional-urls https://github.com/PY32Duino/Arduino-pack-json-ci/releases/download/Nightly/package_py32_index.json
-          ~/bin/arduino-cli core install PY32Duino:PY32@0.1.2 --additional-urls https://github.com/PY32Duino/Arduino-pack-json-ci/releases/download/Nightly/package_py32_index.json
+          arduino-cli core update-index --additional-urls https://github.com/PY32Duino/Arduino-pack-json-ci/releases/download/Nightly/package_py32_index.json
+          arduino-cli core install PY32Duino:PY32@0.1.2 --additional-urls https://github.com/PY32Duino/Arduino-pack-json-ci/releases/download/Nightly/package_py32_index.json
       - name: replace package
         run: |
-          rm -rf ~/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2/
+          rm -rf "$HOME/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2"
+          mkdir -p "$HOME/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2"
           git submodule update --init --recursive
-          cp -r /home/runner/work/Arduino-PY32/Arduino-PY32 ~/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2/
+          cp -a "$GITHUB_WORKSPACE/." "$HOME/.arduino15/packages/PY32Duino/hardware/PY32/0.1.2/"
       - name: build
+        env:
+          BOARD: ${{ matrix.board }}
         run: |
-          cd libraries
-          python test.py
-
+          python3 libraries/test.py
