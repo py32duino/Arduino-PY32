@@ -6,8 +6,10 @@ from pathlib import Path
 
 def main() -> int:
     arduino_cli = os.environ.get("ARDUINO_CLI", "arduino-cli")
-    board = os.environ.get("BOARD", "GenF030")
-    fqbn = os.environ.get("FQBN", f"PY32Duino:PY32:{board}")
+    fqbn = os.environ.get("FQBN")
+    if not fqbn:
+        board = os.environ.get("BOARD")
+        fqbn = f"PY32Duino:PY32:{board}" if board else "PY32Duino:PY32:GenF030:pnum=PY32F030x8"
     libraries = Path(__file__).resolve().parent
     failures = []
 
