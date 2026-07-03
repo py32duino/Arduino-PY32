@@ -289,9 +289,6 @@ GenF003.menu.LowSpeedClockSource.None.build.lsc_temp=-D{build.series}_LSC_NONE
 GenF003.menu.LowSpeedClockSource.LSI=LSI 32.768Khz
 GenF003.menu.LowSpeedClockSource.LSI.build.lsc_temp=-D{build.series}_LSC_LSI
 
-GenF003.menu.LowSpeedClockSource.LSE=LSE 32.768Khz
-GenF003.menu.LowSpeedClockSource.LSE.build.lsc_temp=-D{build.series}_LSC_LSE
-
 GenF003.menu.xserial.generic=Enabled (generic 'Serial')
 GenF003.menu.xserial.none=Enabled (no generic 'Serial')
 GenF003.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
@@ -433,9 +430,6 @@ GenF002A.menu.LowSpeedClockSource.None.build.lsc_temp=-D{build.series}_LSC_NONE
 
 GenF002A.menu.LowSpeedClockSource.LSI=LSI 32.768Khz
 GenF002A.menu.LowSpeedClockSource.LSI.build.lsc_temp=-D{build.series}_LSC_LSI
-
-GenF002A.menu.LowSpeedClockSource.LSE=LSE 32.768Khz
-GenF002A.menu.LowSpeedClockSource.LSE.build.lsc_temp=-D{build.series}_LSC_LSE
 
 GenF002A.menu.xserial.generic=Enabled (generic 'Serial')
 GenF002A.menu.xserial.none=Enabled (no generic 'Serial')
