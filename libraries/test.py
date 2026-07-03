@@ -1,18 +1,36 @@
 import os
+import subprocess
+import sys
+from pathlib import Path
 
-root = "/home/runner/work/Arduino-PY32/Arduino-PY32/libraries/"
 
-for dir in os.listdir(root):
-    if not os.path.isdir(dir):
-        continue
-    ex_path = root+dir+"/examples/"
-    if not os.path.exists(ex_path):
-        continue
-    for ex in os.listdir(ex_path):
-        ex_repo_path = ex_path+ex+"/"
-        if not os.path.isdir(ex_repo_path):
+def main() -> int:
+    arduino_cli = os.environ.get("ARDUINO_CLI", "arduino-cli")
+    board = os.environ.get("BOARD", "GenF030")
+    fqbn = os.environ.get("FQBN", f"PY32Duino:PY32:{board}")
+    libraries = Path(__file__).resolve().parent
+    failures = []
+
+    for library in sorted(path for path in libraries.iterdir() if path.is_dir()):
+        examples = library / "examples"
+        if not examples.is_dir():
             continue
-        print("found example: "+ex_repo_path)
-        #编译
-        os.system("/home/runner/bin/arduino-cli compile -b PY32Duino:PY32:GenF030 "+ex_repo_path)
+        for example in sorted(path for path in examples.iterdir() if path.is_dir()):
+            print(f"compile {fqbn}: {example}", flush=True)
+            result = subprocess.run(
+                [arduino_cli, "compile", "-b", fqbn, str(example)],
+                check=False,
+            )
+            if result.returncode:
+                failures.append(example)
 
+    if failures:
+        print("\nfailed examples:", file=sys.stderr)
+        for example in failures:
+            print(f"  {example}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
