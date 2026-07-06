@@ -1,10 +1,16 @@
 # This file help to add generic board entry.
 # upload.maximum_size and product_line have to be verified
 # and changed if needed.
+# See: https://github.com/stm32duino/Arduino_Core_STM32/wiki/Add-a-new-variant-%28board%29
 
 ###############################
-# Generic PY32F030 Series
+# Generic PY32F002A Series
 ###############################
 
-_TODO_
-
+# Generic PY32F002Ax5
+GenF002A.menu.pnum.PY32F002Ax5=PY32F002Ax5
+GenF002A.menu.pnum.PY32F002Ax5.upload.maximum_size=20480
+GenF002A.menu.pnum.PY32F002Ax5.upload.maximum_data_size=3072
+GenF002A.menu.pnum.PY32F002Ax5.build.board=PY32F002Ax5
+GenF002A.menu.pnum.PY32F002Ax5.build.product_line=PY32F002Ax5
+GenF002A.menu.pnum.PY32F002Ax5.build.variant=PY32F002Axx/PY32F002A_Base

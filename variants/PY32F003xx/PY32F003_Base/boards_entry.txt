@@ -1,10 +1,32 @@
 # This file help to add generic board entry.
 # upload.maximum_size and product_line have to be verified
 # and changed if needed.
+# See: https://github.com/stm32duino/Arduino_Core_STM32/wiki/Add-a-new-variant-%28board%29
 
 ###############################
-# Generic PY32F030 Series
+# Generic PY32F003 Series
 ###############################
 
-_TODO_
+# Generic PY32F003x4
+GenF003.menu.pnum.PY32F003x4=PY32F003x4
+GenF003.menu.pnum.PY32F003x4.upload.maximum_size=16384
+GenF003.menu.pnum.PY32F003x4.upload.maximum_data_size=2048
+GenF003.menu.pnum.PY32F003x4.build.board=PY32F003x4
+GenF003.menu.pnum.PY32F003x4.build.product_line=PY32F003x4
+GenF003.menu.pnum.PY32F003x4.build.variant=PY32F003xx/PY32F003_Base
 
+# Generic PY32F003x6
+GenF003.menu.pnum.PY32F003x6=PY32F003x6
+GenF003.menu.pnum.PY32F003x6.upload.maximum_size=32768
+GenF003.menu.pnum.PY32F003x6.upload.maximum_data_size=4096
+GenF003.menu.pnum.PY32F003x6.build.board=PY32F003x6
+GenF003.menu.pnum.PY32F003x6.build.product_line=PY32F003x6
+GenF003.menu.pnum.PY32F003x6.build.variant=PY32F003xx/PY32F003_Base
+
+# Generic PY32F003x8
+GenF003.menu.pnum.PY32F003x8=PY32F003x8
+GenF003.menu.pnum.PY32F003x8.upload.maximum_size=65536
+GenF003.menu.pnum.PY32F003x8.upload.maximum_data_size=8192
+GenF003.menu.pnum.PY32F003x8.build.board=PY32F003x8
+GenF003.menu.pnum.PY32F003x8.build.product_line=PY32F003x8
+GenF003.menu.pnum.PY32F003x8.build.variant=PY32F003xx/PY32F003_Base
