@@ -18,21 +18,18 @@ jobs:
           path: source
           submodules: recursive
 
-      - name: Remove git information from destination repository
+      - name: Build clean release package
         run: |
-          mkdir dest.git
-          cp -r source/* dest.git/
-          cd dest.git
-          rm -rf .git
-          rm -rf .gitignore
-          rm -rf .github
-          rm -rf .gitmodules
-      
-      - name: Zip folder and save
-        run: |
-          mkdir -p Arduino-PY32
-          cp -r dest.git/* Arduino-PY32/
-          zip -r Arduino-PY32-${GITHUB_REF#refs/tags/}.zip Arduino-PY32
+          mkdir Arduino-PY32
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.gitignore' \
+            --exclude='.gitmodules' \
+            source/ Arduino-PY32/
+          find Arduino-PY32 -name .git -prune -exec rm -rf {} +
+          archive_name="Arduino-PY32-${GITHUB_REF_NAME//\//-}.zip"
+          zip -r "$archive_name" Arduino-PY32
 
       - uses: ncipollo/release-action@v1
         with:
