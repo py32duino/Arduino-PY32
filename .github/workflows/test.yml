@@ -10,7 +10,7 @@ jobs:
   static:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: boards/platform checks
         run: python3 scripts/check_boards.py
 
@@ -27,11 +27,11 @@ jobs:
           - fqbn: PY32Duino:PY32:GenF002A
             examples: false
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: environment prepare
         run: |
           cd ~
-          curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh -s 0.33.0
+          curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/0.33.0/install.sh | sh -s 0.33.0
           echo "$HOME/bin" >> "$GITHUB_PATH"
           ~/bin/arduino-cli version
           ~/bin/arduino-cli config init
