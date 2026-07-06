@@ -31,7 +31,7 @@ add_library(core_bin STATIC EXCLUDE_FROM_ALL
   pins_arduino.c
   Print.cpp
   RingBuffer.cpp
-  air/startup_airyyxx.S
+  py32/startup_airyyxx.S
   Stream.cpp
   Tone.cpp
   USBSerial.cpp
