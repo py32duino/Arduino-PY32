@@ -39,6 +39,17 @@ def require_positive_int(values, key, errors):
         errors.append(f"boards.txt: {key} must be a positive integer")
 
 
+def check_cmake_sources(root: Path, errors: list[str]):
+    source_suffixes = (".c", ".cc", ".cpp", ".cxx", ".s", ".S")
+    for cmake in root.rglob("CMakeLists.txt"):
+        for line_no, line in enumerate(cmake.read_text(encoding="utf-8").splitlines(), 1):
+            source = line.strip()
+            if not source or source.startswith("#") or not source.endswith(source_suffixes):
+                continue
+            if not (cmake.parent / source).is_file():
+                errors.append(f"{cmake.relative_to(root)}:{line_no}: missing source file {source}")
+
+
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
     errors = []
@@ -76,6 +87,11 @@ def main() -> int:
     package_platform = package["packages"][0]["platforms"][0]
     if package_platform["version"] != platform_values.get("version"):
         errors.append("package_py32_index.template.json: platform version does not match platform.txt")
+
+    if (root / "libraries" / "SrcWrapper" / "src" / "air").exists():
+        errors.append("libraries/SrcWrapper/src/air: use src/py32 for PY32 wrapper sources")
+
+    check_cmake_sources(root, errors)
 
     if errors:
         print("\n".join(errors), file=sys.stderr)
